@@ -14,4 +14,4 @@ xcodebuild -exportArchive \
   -archivePath ./ios/build/archive.xcarchive \
   -exportPath $export_dir \
   -exportOptionsPlist $plist_file \
-  -allowProvisioningUpdates
+  -allowProvisioningUpdates | xcpretty

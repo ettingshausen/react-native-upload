@@ -23,7 +23,7 @@ then
 
   xcodebuild clean \
     -workspace "./ios/$workspace" \
-    -scheme "$project_name"
+    -scheme "$project_name" | xcpretty
 
   xcodebuild archive \
     -workspace "./ios/$workspace" \
@@ -31,7 +31,7 @@ then
     -configuration "Release" \
     -archivePath "$archive_path" \
     -allowProvisioningUpdates \
-    -showBuildTimingSummary
+    -showBuildTimingSummary | xcpretty
 elif [ -n "$project" ]
 then
   echo "Find xcodeproj: $project"
@@ -39,7 +39,7 @@ then
 
   xcodebuild clean \
     -project "./ios/$project" \
-    -scheme ${project_name}
+    -scheme ${project_name} | xcpretty
 
   xcodebuild archive \
     -project "./ios/$project" \
@@ -47,7 +47,7 @@ then
     -configuration "Release" \
     -archivePath "$archive_path" \
     -allowProvisioningUpdates \
-    -showBuildTimingSummary
+    -showBuildTimingSummary | xcpretty
 else
   echo "\n\033[31mNeither workspace nor xcodeproj is found, it may be invalid ios project.\033[0m\n"
 fi

@@ -6,14 +6,26 @@ const minimist = require('minimist');
 const colors = require('colors');
 
 const args = minimist(process.argv.slice(2));
+//console.log(args)
 const file = path.resolve('upload.json');
+
+/*
 
 if (!fs.existsSync(file)) {
     console.error(colors.red('\nOops, did you forget to create config file "upload.json"\n'));
     process.exit(1);
 }
 
-const config = JSON.parse(fs.readFileSync(file).toString());
+*/
+let configContent = "{}";
+
+try {
+    configConten = fs.readFileSync(file).toString();
+} catch (error) {
+    
+}
+
+const config = JSON.parse(configContent);
 let [configPaths, defaultValue] = args._[0].split('#');
 let propertyValue;
 

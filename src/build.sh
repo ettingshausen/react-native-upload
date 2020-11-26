@@ -11,8 +11,8 @@ fi
 libs=$dir/libs
 
 log_prefix="Builder"
-#android=$(node $libs/get-config.js android#1 "$@")
-#ios=$(node $libs/get-config.js ios#1 "$@")
+android=$(node $libs/get-config.js android#0 "$@")
+ios=$(node $libs/get-config.js ios#1 "$@")
 
 if [ $ios -eq 1 ]
 then

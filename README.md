@@ -183,6 +183,8 @@ npx upload-build --no-ios
 
 # 单独打包ios
 npx upload-build --no-android --ios-export-plist path/to/xxx.plist
+
+npx upload-build --no-android --ios-export-plist ios/bundle.plist
 ```
 
 ------

@@ -11,7 +11,7 @@ fi
 libs=$dir/libs
 
 log_prefix="Builder"
-android=$(node $libs/get-config.js android#0 "$@")
+android=$(node $libs/get-config.js android#1 "$@")
 ios=$(node $libs/get-config.js ios#1 "$@")
 
 if [ $ios -eq 1 ]
@@ -39,12 +39,12 @@ fi
 
 if [ $ios -eq 0 ]
 then
-  echo -e "\n\033[33m[$log_prefix] Ios is skipped.\033[0m\n"
+  echo -e "\n\033[33m[$log_prefix] iOS is skipped.\033[0m\n"
   sleep 1
 else
   ios_app_save_dir=./ios/build/app-$(date +%Y-%m-%d-%H-%M-%S)
 
-  echo -e "\n\033[32m[$log_prefix] Building ios app...\033[0m\n"
+  echo -e "\n\033[32m[$log_prefix] Building iOS app...\033[0m\n"
 
   bash $libs/archive.sh
   bash $libs/export-ipa.sh $ios_export_plist  $ios_app_save_dir
